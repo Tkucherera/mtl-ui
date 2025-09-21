@@ -5,6 +5,7 @@
 	// Icons
 	import IconFolder from '@lucide/svelte/icons/folder';
 	import IconHouse from '@lucide/svelte/icons/house';
+	import IconUser from '@lucide/svelte/icons/user';
 	import IconSettings from '@lucide/svelte/icons/cog';
 	import IconTruck from '@lucide/svelte/icons/truck';
 	import IconMessage from '@lucide/svelte/icons/message-circle';
@@ -28,6 +29,6 @@
 		<Navigation.Tile id="messages" label="Messages" href="/messages"><IconMessage /></Navigation.Tile>
 		<Navigation.Tile id="home" label="Home" href="/"><IconHouse /></Navigation.Tile>
 		<Navigation.Tile id="truck" label="Truck" href="/truck"><IconTruck/></Navigation.Tile>
-		<Navigation.Tile id="settings" label="Settings" href="/settings"><IconSettings /></Navigation.Tile>
+		<Navigation.Tile id="profile" label="Profile" href="/profile"><IconUser /></Navigation.Tile>
 	</Navigation.Bar>
 </div>

@@ -1,0 +1,1 @@
+<h1 class='h1 font-bold text-black py-60 flex justify-center'>Coming Soon</h1>
