@@ -10,7 +10,7 @@
 <div class="card preset-filled-surface-100-900 border-surface-200-800 block max-w-md overflow-hidden shadow-md rounded-xl">
     <!-- Header -->
     <header class="px-4 py-2 border-b border-surface-200-800">
-        <h3 class="h3 font-bold text-left">Driver Summary</h3>
+        <h3 class="h3 font-bold text-left"> Summary</h3>
     </header>
 
     <!-- Content -->

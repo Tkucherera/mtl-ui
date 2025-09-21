@@ -52,7 +52,7 @@
 </section>
 
 
-<section class="m-4">
+<section class="m-2">
     <DriverStates />
 </section>
 
