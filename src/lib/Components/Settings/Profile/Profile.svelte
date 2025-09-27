@@ -3,21 +3,23 @@
 
 
   export let open = false;
-  export let name = "John Doe";
-  export let phone = "(555) 123-4567";
-  export let email = "driver@example.com";
+  export let fname = "";
+  export let lname = ""
+  export let phone = "";
+  export let email = "";
   export let photo =
-    "https://ui-avatars.com/api/?name=John+Doe&background=random";
+    `https://ui-avatars.com/api/?name=${fname}+${lname}&background=random`;
 
   export let onClose: () => void;
   export let onSave: (data: {
-    name: string;
+    fname: string;
+    lname: string;
     phone: string;
     email: string;
     photo: string;
   }) => void;
 
-  let form = { name, phone, email, photo };
+  let form = { fname, lname, phone, email, photo };
 
   function save() {
     onSave(form);
@@ -66,10 +68,19 @@
 
     <!-- Name -->
     <div class="mb-6">
-      <label for=name class="label">
-        <span class="label-text ml-4 font-bold">Name</span>
+      <label class="label">
+        <span class="label-text ml-4 font-bold">Fist Name</span>
         <input type="text" class="input input-filled w-full h-12 rounded-xl px-4 bg-gray-800"
-            bind:value={form.name}
+            bind:value={form.fname}
+        />
+      </label> 
+    </div>
+
+    <div class="mb-6">
+      <label class="label">
+        <span class="label-text ml-4 font-bold">Last Name</span>
+        <input type="text" class="input input-filled w-full h-12 rounded-xl px-4 bg-gray-800"
+            bind:value={form.lname}
         />
       </label> 
     </div>

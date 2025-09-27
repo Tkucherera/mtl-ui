@@ -12,40 +12,40 @@
   import Legal from "$lib/Components/Settings/Legal/Legal.svelte";
 	import Privacy from "$lib/Components/Settings/Privacy/Privacy.svelte";
 
-  let editOpen = false;
-  let profile = {
-    name: "John Doe",
-    phone: "(555) 123-4567",
-    email: "driver@example.com",
-    photo: "https://ui-avatars.com/api/?name=John+Doe&background=random",
-    trips: 120,
-    miles: "85,000"
-  };
+  let editOpen = $state(false);
 
-   let openSettings: boolean = false;
-   let openLegal: boolean = false;
-   let openNotifications: boolean = false;
-   let openHelp: boolean = false;
-   let openPrivacy: boolean = false;
+  import type { PageProps } from './$types'
 
-  function saveProfile(data) {
-    profile = { ...profile, ...data };
+	let { data }: PageProps = $props();
+	const user = data.user
+
+
+
+   let openSettings: boolean = $state(false);
+   let openLegal: boolean = $state(false);
+   let openNotifications: boolean = $state(false);
+   let openHelp: boolean = $state(false);
+   let openPrivacy: boolean = $state(false);
+
+  function saveProfile(data: any) {
+    console.log(data);
   }
 </script>
 
 <section>
 <ProfileCardNav
-  name={profile.name}
-  phone={profile.phone}
+  name={user.profile.fname}
+  phone={user.profile.phone}
   onEdit={() => (editOpen = true)}
 />
 
 <Profile
   open={editOpen}
-  name={profile.name}
-  phone={profile.phone}
-  email={profile.email}
-  photo={profile.photo}
+  fname={user.profile.fname}
+  lname={user.profile.lname}
+  phone={user.profile.phone}
+  email={user.profile.email}
+  photo={user.profile.photo}
   onClose={() => (editOpen = false)}
   onSave={saveProfile}
 />

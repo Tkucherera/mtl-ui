@@ -1,24 +1,25 @@
 <script lang="ts">
     import imgSrc from '$lib/images/trip_dummy.png'
 
-    export let name: string = 'Trip #12345';
+    export let trip;
+    export let loading = true
 
-    let loading = true;
 
-    // Example: simulate data loading
-    setTimeout(() => {
-        loading = false;
-    }, 2000);
+    function convert_time(time: string){
+        const date = new Date(time)
+        
+        const readable_time = new Intl.DateTimeFormat('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: 'numeric',
+            hour12: true
+        }).format(date)
 
-    // Pretend trip details
-    let trip = {
-        from: 'Greensboro, NC',
-        fromCompany: 'Jongwe Foods',
-        fromWindow: 'Sep 20, 2025 • 8-10 AM',
-        to: 'Atlanta, GA',
-        toCompany: 'Walmart',
-        toWindow: 'Sep 21, 2025 • 6-8 PM'
-    };
+        return readable_time
+    }
+
 </script>
 
 <a
@@ -27,7 +28,7 @@
 >
     <!-- Header -->
     <header class="px-4 py-2 border-b border-surface-200-800">
-        <h3 class="h3 text-left font-bold">{name}</h3>
+        <h3 class="h3 text-left font-bold">{trip.broker}</h3>
     </header>
 
     <!-- Banner -->
@@ -55,10 +56,10 @@
                 <div>
                     <p class="text-xs uppercase tracking-wide text-surface-500">Pickup</p>
                     <p class="font-semibold">{trip.fromCompany}</p>
-                    <p class="text-sm text-surface-600">{trip.from}</p>
+                    <p class="text-sm text-surface-600">{trip.pickup_location}</p>
                 </div>
                 <p class="mt-3 text-xs bg-surface-200 text-surface-800 px-1 py-1 rounded">
-                    {trip.fromWindow}
+                    {convert_time(trip.pickup_date)}
                 </p>
             </div>
 
@@ -67,10 +68,10 @@
                 <div>
                     <p class="text-xs uppercase tracking-wide text-surface-500">Dropoff</p>
                     <p class="font-semibold">{trip.toCompany}</p>
-                    <p class="text-sm text-surface-600">{trip.to}</p>
+                    <p class="text-sm text-surface-600">{trip.dropoff_location}</p>
                 </div>
                 <p class="mt-3 text-xs bg-surface-200 text-surface-800 px-1 py-1 rounded">
-                    {trip.toWindow}
+                    {convert_time(trip.delivery_date)}
                 </p>
             </div>
         {/if}

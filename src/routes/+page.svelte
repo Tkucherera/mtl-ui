@@ -4,7 +4,14 @@
 	import TripCard from '$lib/Components/Home/TripCard.svelte';
 	import DriverStates from '$lib/Components/Home/DriverStates.svelte';
 
-	let name = "Jongwe Corner"
+	// data 
+	import type { PageProps } from './$types'
+
+	let { data }: PageProps = $props();
+	const trip = data.trip 
+	
+
+	
 </script>
 
 <svelte:head>
@@ -37,7 +44,7 @@
 </section>
 
 <section>
-	<TripCard {name}/>
+	<TripCard {trip} loading={false}/>
 </section>
 
 <section class='my-2'>
